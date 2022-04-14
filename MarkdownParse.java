@@ -11,7 +11,14 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
+        String tempStr = markdown;
         while(currentIndex < markdown.length()) {
+            tempStr = markdown.substring(currentIndex, markdown.length());
+
+            if(!tempStr.contains("[") || !tempStr.contains("]") || !tempStr.contains("(") || !tempStr.contains(")")) {
+                break;
+            }
+            
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
