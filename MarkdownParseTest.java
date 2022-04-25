@@ -30,7 +30,6 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
 
         testArrayList.add("https://something.com");
-        testArrayList.add("");
 
         assertEquals(MarkdownParse.getLinks(content), testArrayList);
     }
