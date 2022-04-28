@@ -24,9 +24,18 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             currentIndex = closeParen + 1;
-            if(markdown.substring(openBracket - 1, openBracket).contains("!") || openParen - closeBracket != 1) {
-                continue;
+            
+            if(openBracket == 0) {
+                if(openParen - closeBracket != 1) {
+                    continue;
+                }
             }
+            else {
+                if (markdown.substring(openBracket - 1, openBracket).contains("!") || openParen - closeBracket != 1) {
+                    continue;
+                }
+            }
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
         }
 
