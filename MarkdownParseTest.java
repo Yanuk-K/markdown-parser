@@ -29,6 +29,7 @@ public class MarkdownParseTest {
         Path fileName = Path.of("newmd.md");
         String content = Files.readString(fileName);
 
+        testArrayList.add("a link on the first line");
         testArrayList.add("https://something.com");
 
         assertEquals(MarkdownParse.getLinks(content), testArrayList);
